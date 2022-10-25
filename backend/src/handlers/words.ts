@@ -14,6 +14,6 @@ const getWords = async (req:express.Request , res: express.Response)=>{
 }
 
 const wordsHandler = (route : express.Router)=>{
-    route.get('/rondomWords' , getWords);
+    route.get('/randomWords' , getWords);
 }
 export default wordsHandler;

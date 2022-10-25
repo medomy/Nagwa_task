@@ -1,7 +1,9 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
+import scoreHandler from './handlers/scores';
 import wordsHandler from './handlers/words';
+import scoresRoute from './routes/scores/scores_route';
 import wordsRoute from './routes/words/words_route';
 const app: express.Application = express();
 const port: number = 4000;
@@ -14,10 +16,12 @@ const corsOptions = {
 
 app.use([cors(corsOptions) , bodyParser.json()]);
 app.use('/words' , wordsRoute);
+app.use('/scores' , scoresRoute);
 app.get('/' , (req:express.Request , res:express.Response)=>{
     res.send('welcome to words application, hope all is well')
 });
 wordsHandler(wordsRoute);
+scoreHandler(scoresRoute);
 app.listen(port , ()=>{
     console.log(`app is opened at : ${address}`);
 })

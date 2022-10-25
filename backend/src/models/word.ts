@@ -1,11 +1,12 @@
 import {promises as fsPromises} from 'fs';
 import { fileDir } from '../utils';
 import Word from '../types/word'
+import readFile from '../utils/readFile';
 class WordStore {
     static async getWords():Promise<Word[]>{
         try{
-            const testDataFile = await fsPromises.readFile(`${fileDir}/TestData.json`);
-            const allWords = JSON.parse(testDataFile.toString()).wordList;
+            const readedObj = await readFile();
+            const allWords = readedObj.wordList;
             let randomWords:Word[] = [];
             while (true) {
                 for(let i =0 ; i< 10 ; i++) {
@@ -15,7 +16,6 @@ class WordStore {
                     break;
                 }
             }
-            console.log(randomWords.length);
             return randomWords;
         }catch(err){
             throw new Error (`can not get words , error is ${err}`)
