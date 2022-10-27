@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProgressBar from '../../../../components/progress_bar/progress_bar';
 import useAppDispatch from '../../../../hooks/useAppDispatch';
 import useAppSelector from '../../../../hooks/useAppSelector';
@@ -12,7 +13,7 @@ const QuestionsSec: React.FC = () => {
     const [isStarted, setIsStarted] = React.useState<boolean>(false);
     const [words, setWords] = React.useState<Word[]>([]);
     const [wordIndex, setWordIndex] = React.useState<number>(0);
-    const [userMsg,setUserMsg] = React.useState<string | null>(null);
+    const [userMsg, setUserMsg] = React.useState<string | null>(null);
     const answers = useAppSelector((state) => state.answers.answers);
     const dispatch = useAppDispatch();
     const types: ButtonsWordsType[] = [{
@@ -31,10 +32,16 @@ const QuestionsSec: React.FC = () => {
         id: 4,
         type: 'adjective'
     }]
+    const navigate = useNavigate();
     const recordAnswer = (type: string) => {
         dispatch(addAnswer(type === words[wordIndex].pos));
         type === words[wordIndex].pos ? setUserMsg('correct answer, vamos') : setUserMsg('wrong answer , focus');
-        setWordIndex((i) => i += 1);
+        if (wordIndex < 9) {
+            setWordIndex((i) => i += 1);
+        }
+        else {
+            navigate('/rank')
+        }
     }
     const start = async (): Promise<void> => {
         try {
