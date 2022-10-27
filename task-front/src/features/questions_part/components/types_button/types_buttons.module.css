@@ -1,0 +1,20 @@
+.types_btn{
+    padding: 8px;
+    border: transparent;
+    color: white;
+    border-radius: 6px;
+    width: 75%;
+}
+
+.noun_btn{
+    background-color: #157347;
+}
+.verb_btn{
+    background-color: #BB2D3B;
+}
+.adverb_btn{
+    background-color: #1C1F23;
+}
+.adj_btn{
+    background-color: #0B5ED7;
+}

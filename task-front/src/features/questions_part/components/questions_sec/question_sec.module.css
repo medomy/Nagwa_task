@@ -1,0 +1,26 @@
+.questions_sec{
+    background-color: white;
+    opacity: 0.8;
+    border: transparent;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+}
+.start_btn {
+    padding: 8px;
+    border: transparent;
+    color: white;
+    border-radius: 6px;
+    background-color: var(--mainGreen);
+    width: 60%;
+}
+.current_word{
+    color: var(--mainGreen);
+    font-weight: 800;
+}
+.correct_answer{
+    color: var(--mainGreen);
+}
+.wrong_answer {
+    color: red;
+}
