@@ -7,9 +7,10 @@ import styles from './rank_sec.module.css'
 interface Props {
 
 }
-const RankSec : React.FC = ()=>{
+const RankSec : React.FC<Props> = ()=>{
     const [rank,setRank] = useState<number>(0);
     const answers = useAppSelector((state)=> state.answers.answers);
+    const userName = useAppSelector((state)=> state.user.userName);
     const onInit = async ()=>{
         try{
             console.log(answers);
@@ -24,7 +25,7 @@ const RankSec : React.FC = ()=>{
     },[])
     return(
         <div className={styles.rank_sec}>
-            <h4 className="my-3">You are ranked more than...</h4>
+            <h4 className="my-3">{userName},You are ranked more than...</h4>
             <RankText rank={rank}/>
             <RankMsg rank={rank}/>
         </div>

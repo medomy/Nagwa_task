@@ -15,6 +15,7 @@ const QuestionsSec: React.FC = () => {
     const [wordIndex, setWordIndex] = React.useState<number>(0);
     const [userMsg, setUserMsg] = React.useState<string | null>(null);
     const answers = useAppSelector((state) => state.answers.answers);
+    const userName = useAppSelector((state)=> state.user.userName);
     const dispatch = useAppDispatch();
     const types: ButtonsWordsType[] = [{
         id: 1,
@@ -54,7 +55,7 @@ const QuestionsSec: React.FC = () => {
     }
     return (
         <div className={`${styles.questions_sec}`}>
-            {!isStarted ? <h3>Are you ready?</h3> : <h3>good luck</h3>}
+            {!isStarted ? <h3>Are you ready? {userName}</h3> : <h3>good luck {userName}</h3>}
             {!isStarted ? <button className={`${styles.start_btn} my-4`} onClick={start}>Let's go</button> : null}
             {isStarted ? <div className={`${styles.word_wrap} mt-4`}>
                 <h5 className={styles.current_word}>current word: {words[wordIndex].word}</h5>
