@@ -4,6 +4,7 @@ interface Props {
     maxProgress : number,
     minProgress : number
 }
+// componenet for progress bar and accepts props to calculate progress
 const ProgressBar: React.FC<Props> = ({progress , maxProgress , minProgress}) => {
     return (
         <div className="progress">

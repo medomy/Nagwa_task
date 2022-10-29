@@ -1,6 +1,6 @@
 import React from "react";
 import AuthForm from "../../components/auth_form/auth_form";
-
+// root page 
 const AuthPage: React.FC = () => {
     return (
         <>

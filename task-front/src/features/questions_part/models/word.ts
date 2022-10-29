@@ -1,3 +1,4 @@
+// word interface to specify the words types coming
 interface Word {
     id: number,
     word: string,

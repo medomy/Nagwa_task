@@ -1,6 +1,7 @@
 import React from "react";
 import ErrorComponent from "../../components/error_component/error_component";
 import styles from './error_page.module.css'
+// error page component
 const ErrorPage: React.FC = () => {
     return (
         <div className="container-fluid normal_page">

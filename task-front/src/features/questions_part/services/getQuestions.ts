@@ -1,6 +1,6 @@
 import { public_instance } from "../../../network/axios_instance";
 import Word from "../models/word";
-
+// questions service to get random words
 class QuestionsStore {
     static async getQuestions():Promise<Word[]>{
         try{

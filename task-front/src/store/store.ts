@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import answerReducer from './reducers/answers/answers_reducer';
 import userReducer from './reducers/user/user_reducer'
+// the store with all our reducers
 export const store = configureStore({
   reducer: {
     answers : answerReducer,

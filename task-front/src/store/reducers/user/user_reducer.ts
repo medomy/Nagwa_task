@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store'
-
+// redux-toolkit for a global user throughout the application
 // Define a type for the slice state
 interface UserState {
     userName: string
@@ -17,6 +17,7 @@ export const UserSlice = createSlice({
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
+        // change userName globally
         setUserName: (state, action: PayloadAction<string>) => {
             state.userName = action.payload;
         },

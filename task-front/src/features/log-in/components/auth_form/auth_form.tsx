@@ -3,22 +3,29 @@ import { useNavigate } from "react-router-dom";
 import useAppDispatch from "../../../../hooks/useAppDispatch";
 import { setUserName } from "../../../../store/reducers/user/user_reducer";
 import styles from './auth_form.module.css'
+// get user name form component
 const AuthForm: React.FC = () => {
+    // in case there is an error like not entering a user name and submitting
     const [errMsg , setErrMsg] = useState<string | null>(null);
+    // reference for the input
     const userNameField = useRef<HTMLInputElement | null>(null);
+    // dispatch the actions
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-
+    // submit as user when you enter the username
     const signInAsUser = (e: FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
+        // in case it's fine
         if(userNameField.current?.value.length !== 0){
             dispatch(setUserName(userNameField.current?.value ?? ''));
             navigate('/test');
         }
+        // in case not entering the user name
         else {
             setErrMsg('can not continue without name , you can continue as a visitor')
         }
     }
+    // sign in as a visitor function
     const signInAsVisitor =()=>{
         navigate('/test');
     }

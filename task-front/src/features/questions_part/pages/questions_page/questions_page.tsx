@@ -1,6 +1,7 @@
 import React from "react";
 import QuestionsSec from "../../components/questions_sec/question_sec";
 import styles from './question_page.module.css';
+// questions page component
 const QuestionsPage:React.FC =()=>{
     return(
         <div className="container-fluid normal_page">

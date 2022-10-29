@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 import useAppSelector from "../../../hooks/useAppSelector";
 import RankSec from "../components/rank_sec/rank_sec";
 import styles from './rank_page.module.css'
+// component to render the whole page of rank
 const RankPage: React.FC = () => {
     const answers = useAppSelector((state)=> state.answers.answers);
     const navigate = useNavigate();
+    // function to make sure all questions are answered
     const checkAnswers = ()=>{
         if(answers.length < 10){
             alert('answers are not complete');

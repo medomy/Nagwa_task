@@ -9,14 +9,18 @@ import ButtonsWordsType from '../../models/wordTypes';
 import QuestionsStore from '../../services/getQuestions';
 import TypeButton from '../types_button/types_button';
 import styles from './question_sec.module.css';
+// the part that fetches and shows words
 const QuestionsSec: React.FC = () => {
+    // boolean to determine if the words fetched or not 
+    // show and hide some components
     const [isStarted, setIsStarted] = React.useState<boolean>(false);
     const [words, setWords] = React.useState<Word[]>([]);
     const [wordIndex, setWordIndex] = React.useState<number>(0);
+    // state of correct or wrong answers 
     const [userMsg, setUserMsg] = React.useState<string | null>(null);
-    const answers = useAppSelector((state) => state.answers.answers);
     const userName = useAppSelector((state)=> state.user.userName);
     const dispatch = useAppDispatch();
+    // array of types to render buttons 
     const types: ButtonsWordsType[] = [{
         id: 1,
         type: 'noun'
@@ -34,6 +38,7 @@ const QuestionsSec: React.FC = () => {
         type: 'adjective'
     }]
     const navigate = useNavigate();
+    // function to track answers till the end
     const recordAnswer = (type: string) => {
         dispatch(addAnswer(type === words[wordIndex].pos));
         type === words[wordIndex].pos ? setUserMsg('correct answer, vamos') : setUserMsg('wrong answer , focus');
@@ -44,6 +49,7 @@ const QuestionsSec: React.FC = () => {
             navigate('/rank')
         }
     }
+    // function to start the test and fetch the words
     const start = async (): Promise<void> => {
         try {
             const _words = await QuestionsStore.getQuestions();

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 interface Props {
     rank : number
 }
+// component to render the messege shows with rank
 const RankMsg:React.FC<Props> = ({rank})=>{
     const [msg,setMsg]= React.useState<string>('');
     const onInit = ()=>{
