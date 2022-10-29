@@ -57,3 +57,6 @@ go to localhost link [http://localhost:3000](http://localhost:3000)
 - test route : the begin test page [http://localhost:3000/test](http://localhost:3000/test)
 
 - rank route : the rank page on [http://localhost:3000/rank](http://localhost:3000/rank)
+
+## for more information
+check the readme files inside each folder for frontend or backend
